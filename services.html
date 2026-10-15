@@ -3,11 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Financial Services</title>
+  <title>Financial Services – Surkhaab Consultants Private Limited</title>
+  <meta name="description" content="Explore Business Loans, Car Loans, Personal Loans, Life Insurance, Health Insurance, General Insurance & Financial Advisory from Surkhaab Consultants. Apply online today." />
+  <meta name="keywords" content="business loan, car loan, personal loan, life insurance, health insurance, general insurance, financial advisory, registration services, NBFC India" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Financial Services – Surkhaab Consultants" />
+  <meta property="og:description" content="Loans, Insurance & Advisory Services — secure your future with Surkhaab Consultants." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.surkhaabconsultants.com/services.html" />
+  <meta property="og:image" content="https://www.surkhaabconsultants.com/img_res/Life_Insurance_1.png" />
 
   <link rel="icon" type="image/png" href="img_res/icons/Trust.png" />
   <link rel="apple-touch-icon" href="img_res/icons/Trust.png" />
   <link rel="stylesheet" href="services.css">
+  <link rel="stylesheet" href="shared.css">
 </head>
 <body>
 <!-- NAVBAR -->
@@ -19,16 +30,17 @@
   </div>
   <nav class="nav-links" id="navLinks">
     <a href="index.html">Home</a>
-    <a href="services.html">Services</a>
+    <a href="services.html" class="active">Services</a>
     <a href="index.html#emi-calculator">Calculator</a>
     <a href="about.html" >About Us</a>
-    <a href="index.html#faq ">FAQ</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="contact.html">Contact</a>
   </nav>
   <div class="nav-actions"></div>
   <div class="menu-icon" onclick="toggleMenu()">☰</div>
 </header>
 
-<section class="services-section">
+<main><section class="services-section">
 
   <div class="section-header">
     <h1>Smart Financial Solutions for Every Need</h1>
@@ -42,7 +54,7 @@
   <div class="services-grid">
 
     <!-- Business Loan -->
-    <div class="service-card" data-service="business">
+    <div class="service-card" id="business" data-service="business">
       <div class="service-icon"><img src="img_res/icons/bulding.png" alt="Building icon"></div>
 
       <h3>Business Loan</h3>
@@ -58,7 +70,7 @@
     </div>
 
     <!-- Car Loan -->
-    <div class="service-card" data-service="car">
+    <div class="service-card" id="car" data-service="car">
       <div class="service-icon"><img src="img_res/icons/SUV.png" alt="SUV icon"></div>
 
       <h3>Car Loan</h3>
@@ -74,7 +86,7 @@
     </div>
 
     <!-- Personal Loan -->
-    <div class="service-card" data-service="personal">
+    <div class="service-card" id="personal" data-service="personal">
       <div class="service-icon"><img src="img_res/icons/peoples.png" alt="People icon"></div>
 
       <h3>Personal Loan</h3>
@@ -90,7 +102,7 @@
     </div>
 
     <!-- Life Insurance -->
-    <div class="service-card" data-service="life">
+    <div class="service-card" id="life-insurance" data-service="life">
       <div class="service-icon"><img src="img_res/icons/Trust.png" alt="Trust icon"></div>
 
       <h3>Life Insurance</h3>
@@ -106,7 +118,7 @@
     </div>
 
     <!-- Health Insurance -->
-    <div class="service-card" data-service="health">
+    <div class="service-card" id="health-insurance" data-service="health">
       <div class="service-icon"><img src="img_res/icons/Heart with Pulse.png" alt="Health icon"></div>
 
       <h3>Health Insurance</h3>
@@ -122,7 +134,7 @@
     </div>
 
     <!-- General Insurance -->
-    <div class="service-card" data-service="general">
+    <div class="service-card" id="general-insurance" data-service="general">
       <div class="service-icon"><img src="img_res/icons/Document.png" alt="Document icon"></div>
 
       <h3>General Insurance</h3>
@@ -138,7 +150,7 @@
     </div>
 
     <!-- Financial Advisory -->
-    <div class="service-card" data-service="advisory">
+    <div class="service-card" id="advisory" data-service="advisory">
       <div class="service-icon"><img src="img_res/icons/graph.png" alt="Graph icon"></div>
 
       <h3>Financial Advisory</h3>
@@ -155,8 +167,7 @@
 
   </div>
 
-</section>
-
+</section></main>
 
 
 <!-- FOOTER -->
@@ -166,9 +177,11 @@
     <!-- ABOUT -->
     <div class="footer-col">
       <img src="img_res/Life_Insurance_1.png" class="footer-logo" alt="Surkhaab Logo">
+      <h4>SURKHAAB CONSULTANTS PRIVATE LIMITED</h4>
       <p>
-        Empowering SMEs and entrepreneurs with flexible business loan solutions
-        since 2015. Your trusted financial partner for business growth.
+        Helping businesses grow with reliable consulting solutions, transparent processes, and professional 
+        client support. We are committed to delivering efficient and result-oriented services tailored to 
+        modern business needs.
       </p>
       <span class="nbfc-badge">RBI Registered NBFC</span>
 
@@ -184,12 +197,13 @@
     <div class="footer-col">
       <h4>Products</h4>
       <ul>
-        <li><a href="#">Working Capital Loan</a></li>
-        <li><a href="#">Term Loans</a></li>
-        <li><a href="#">Equipment Finance</a></li>
-        <li><a href="#">Business Expansion</a></li>
-        <li><a href="#">Loan Against Property</a></li>
-        <li><a href="#">Balance Transfer</a></li>
+        <li><a href="services.html#business">Business Loan</a></li>
+        <li><a href="services.html#car">Car Loan</a></li>
+        <li><a href="services.html#personal">Personal Loan</a></li>
+        <li><a href="services.html#life-insurance">Life Insurance</a></li>
+        <li><a href="services.html#health-insurance">Health Insurance</a></li>
+        <li><a href="services.html#general-insurance">General Insurance</a></li>
+        <li><a href="services.html#advisory">Financial Advisory</a></li>
       </ul>
     </div>
 
@@ -199,10 +213,10 @@
       <ul>
         <li><a href="index.html#emi-calculator">EMI Calculator</a></li>
         <li><a href="#">Eligibility Checker</a></li>
-        <li><a href="#">Blog</a></li>
         <li><a href="index.html#faq">FAQs</a></li>
         <li><a href="#">Customer Stories</a></li>
         <li><a href="#">Download Brochure</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
       </ul>
     </div>
 
@@ -210,9 +224,9 @@
     <div class="footer-col">
       <h4>Get in Touch</h4>
       <ul class="contact">
-        <li><a href="mailto:info@surkhaabconsultants.com">✉ info@surkhaabconsultants.com</a></li>
+        <li><a href="mailto:chawla171@gmail.com">✉ chawla171@gmail.com</a></li>
         <li>📍 B-38, UGF, Vishal Enclave,
-Delhi – 110027, India</li>
+ Delhi – 110027, India</li>
       </ul>
 
       <p class="hours">
@@ -225,7 +239,7 @@ Delhi – 110027, India</li>
 
   <!-- FOOTER BOTTOM -->
   <div class="footer-bottom">
-    <p>© 2025 Business Loan Provider. All rights reserved.</p>
+    <p>© 2022 SURKHAAB CONSULTANTS PRIVATE LIMITED. ALL RIGHT RESERVED.</p>
 
     <div class="footer-links">
       <a href="privacy-policy.html">Privacy Policy</a>
@@ -242,7 +256,7 @@ Delhi – 110027, India</li>
   </div>
 </footer>
 
-<div class="modal" id="modal">
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Service details">
   <div class="modal-content">
     <button class="close-btn" id="closeBtn">&times;</button>
     <div id="modalData"></div>

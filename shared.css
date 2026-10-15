@@ -1,0 +1,149 @@
+/* SHARED STYLES — Navbar & Footer — used across all pages */
+
+/* NAVBAR */
+.navbar {
+  padding: 8px 60px;
+  display: flex; align-items: center; justify-content: space-between;
+  position: sticky; top: 0; z-index: 1000;
+  backdrop-filter: blur(6px);
+  background: rgba(255,255,255,0.95);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.07);
+}
+.logo { color: var(--primary-color); font-size: 18px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+.logo img { width: 100px; }
+.logo pre { font-family: "Segoe UI", sans-serif; font-size: 13px; line-height: 1.4; }
+.logo span { color: var(--secondary-color); }
+.nav-links { display: flex; align-items: center; }
+.nav-links a { color: var(--primary-color); margin: 0 14px; text-decoration: none; font-size: 15px; font-weight: 600; transition: color 0.3s; }
+.nav-links a:hover { color: var(--secondary-color); }
+.nav-links a.active { border-bottom: 2px solid var(--primary-color); padding-bottom: 2px; }
+.nav-actions { display: flex; gap: 16px; }
+.menu-icon { display: none; font-size: 26px; color: var(--primary-color); cursor: pointer; }
+@media (max-width: 900px) {
+  .navbar { padding: 8px 24px; }
+  .nav-links { position: absolute; top: 70px; left: 0; width: 100%; background: var(--white); flex-direction: column; align-items: center; display: none; padding: 20px 0; box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+  .nav-links a { margin: 12px 0; font-size: 16px; }
+  .nav-links.active { display: flex; }
+  .nav-actions { display: none; }
+  .menu-icon { display: block; }
+}
+
+/* FOOTER */
+.footer {
+  background: #1c2d4f;
+  color: #cbd5e1;
+}
+.footer-top {
+  max-width: 1200px;
+  margin: auto;
+  padding: 70px 20px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.2fr;
+  gap: 50px;
+}
+.footer-logo {
+  width: 100px;
+  margin-top: -30px;
+}
+.footer-col h4 {
+  color: #ffffff;
+  margin-bottom: 18px;
+}
+.footer-col p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+.footer-col ul {
+  list-style: none;
+}
+.footer-col ul li {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+.footer-col ul li a {
+  color: #cbd5e1;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.footer-col ul li a:hover {
+  color: #0ea5a3;
+}
+.nbfc-badge {
+  display: inline-block;
+  background: #0ea5a3;
+  color: #ffffff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  margin: 15px 0;
+}
+.social-icons {
+  display: flex;
+  gap: 10px;
+}
+.social-icons a {
+  width: 34px;
+  height: 34px;
+  border: 1px solid #334155;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #cbd5e1;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.social-icons a:hover {
+  background: #0ea5a3;
+  border-color: #0ea5a3;
+  color: #ffffff;
+}
+.contact li {
+  margin-bottom: 10px;
+}
+.hours {
+  font-size: 13px;
+  margin-top: 15px;
+  opacity: 0.8;
+}
+.footer-bottom {
+  border-top: 1px solid #334155;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+}
+.footer-links {
+  display: flex;
+  gap: 15px;
+}
+.footer-links a {
+  color: #cbd5e1;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.footer-links a:hover {
+  color: #0ea5a3;
+}
+.disclaimer {
+  background: #e5e7eb;
+  color: #334155;
+  font-size: 12px;
+  padding: 12px;
+  text-align: center;
+}
+@media (max-width: 900px) {
+  .footer-top {
+    grid-template-columns: 1fr;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+  .footer-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

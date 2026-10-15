@@ -25,7 +25,7 @@ const reviews = [
     name: "Vikram Singh",
     role: "Construction Company",
     amount: "₹80 Lakhs",
-    img: "img_res/Rajesh_Kumar.png"
+    img: "img_res/Vikram_Singh.png"
   }
 ];
 
@@ -33,9 +33,26 @@ const slider = document.getElementById("slider");
 const dots = document.getElementById("dots");
 
 let index = 0;
-const visible = 3;
+
+function getVisible() {
+  return window.innerWidth < 600 ? 1 : window.innerWidth < 900 ? 2 : 3;
+}
+
+function getCardWidth() {
+  const firstCard = slider.querySelector(".card");
+  if (!firstCard) return 340;
+  const style = getComputedStyle(firstCard);
+  const width = parseInt(style.minWidth || style.width) || 340;
+  const gap = 25;
+  return width + gap;
+}
 
 function render() {
+  const visible = getVisible();
+  const dotsTotal = Math.ceil(reviews.length / visible);
+  if (index >= dotsTotal) index = dotsTotal - 1;
+  if (index < 0) index = 0;
+
   slider.innerHTML = "";
   dots.innerHTML = "";
 
@@ -56,21 +73,27 @@ function render() {
     `;
   }
 
-  for (let i = 0; i < reviews.length / visible; i++) {
+  for (let i = 0; i < dotsTotal; i++) {
     dots.innerHTML += `<span class="${i === index ? "active" : ""}"></span>`;
   }
 
-  slider.style.transform = `translateX(-${index * (360 + 25) * visible}px)`;
+  const cardWidth = getCardWidth();
+  slider.style.transform = `translateX(-${index * cardWidth * visible}px)`;
 }
 
 document.querySelector(".next").onclick = () => {
-  index = (index + 1) % Math.ceil(reviews.length / visible);
+  const visible = getVisible();
+  const total = Math.ceil(reviews.length / visible);
+  index = (index + 1) % total;
   render();
 };
 
 document.querySelector(".prev").onclick = () => {
-  index = (index - 1 + Math.ceil(reviews.length / visible)) % Math.ceil(reviews.length / visible);
+  const visible = getVisible();
+  const total = Math.ceil(reviews.length / visible);
+  index = (index - 1 + total) % total;
   render();
 };
 
+window.addEventListener("resize", render);
 render();

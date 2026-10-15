@@ -1,6 +1,7 @@
 const modal = document.getElementById("modal");
 const modalData = document.getElementById("modalData");
 const closeBtn = document.getElementById("closeBtn");
+let lastFocusedElement = null;
 
 const services = {
 
@@ -252,6 +253,8 @@ const services = {
 };
 
 document.querySelectorAll(".service-card").forEach(card => {
+  card.setAttribute("role", "button");
+  card.setAttribute("tabindex", "0");
 
   card.addEventListener("click", () => {
 
@@ -365,7 +368,7 @@ document.querySelectorAll(".service-card").forEach(card => {
           </ul>
         </div>
 
-        <a href="mailto:info@surkhaabconsultants.com" class="apply-btn">
+        <a href="contact.html?service=${encodeURIComponent(service.title)}" class="apply-btn">
           Get Consultation
         </a>
 
@@ -407,7 +410,7 @@ document.querySelectorAll(".service-card").forEach(card => {
           </ul>
         </div>
 
-        <a href="mailto:info@surkhaabconsultants.com" class="apply-btn">
+        <a href="contact.html?service=${encodeURIComponent(service.title)}" class="apply-btn">
           Apply Now
         </a>
 
@@ -415,22 +418,39 @@ document.querySelectorAll(".service-card").forEach(card => {
 
     }
 
-    modal.classList.add("active");
+    openModal();
+  });
 
+  card.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      card.click();
+    }
   });
 
 });
 
-closeBtn.addEventListener("click", () => {
+function openModal() {
+  lastFocusedElement = document.activeElement;
+  modal.classList.add("active");
+  document.body.style.overflow = "hidden";
+  closeBtn.focus();
+}
+
+function closeModal() {
   modal.classList.remove("active");
-});
+  document.body.style.overflow = "";
+  if (lastFocusedElement) lastFocusedElement.focus();
+}
+
+closeBtn.addEventListener("click", closeModal);
 
 modal.addEventListener("click", (e) => {
+  if (e.target === modal) closeModal();
+});
 
-  if(e.target === modal){
-    modal.classList.remove("active");
-  }
-
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && modal.classList.contains("active")) closeModal();
 });
 
 const params = new URLSearchParams(window.location.search);

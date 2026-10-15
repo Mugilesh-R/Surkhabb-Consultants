@@ -19,34 +19,6 @@ body{
 }
 
 
-    /* NAVBAR */
-    .navbar {
-      padding: 8px 60px;
-      display: flex; align-items: center; justify-content: space-between;
-      top: 0; z-index: 1000;
-      backdrop-filter: blur(6px);
-      background: rgba(255,255,255,0.95);
-      box-shadow: 0 1px 0 rgba(0,0,0,0.07);
-    }
-    .logo { color: var(--primary-color); font-size: 18px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
-    .logo img { width: 100px; }
-    .logo pre { font-family: "Segoe UI", sans-serif; font-size: 13px; line-height: 1.4; }
-    .logo span { color: var(--secondary-color); }
-    .nav-links { display: flex; align-items: center; }
-    .nav-links a { color: var(--primary-color); margin: 0 14px; text-decoration: none; font-size: 15px; font-weight: 600; transition: color 0.3s; }
-    .nav-links a:hover { color: var(--secondary-color); }
-    .nav-links a.active { border-bottom: 2px solid var(--primary-color); padding-bottom: 2px; }
-    .nav-actions { display: flex; gap: 16px; }
-    .menu-icon { display: none; font-size: 26px; color: var(--primary-color); cursor: pointer; }
-    @media (max-width: 900px) {
-      .navbar { padding: 8px 24px; }
-      .nav-links { position: absolute; top: 70px; left: 0; width: 100%; background: var(--white); flex-direction: column; align-items: center; display: none; padding: 20px 0; box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
-      .nav-links a { margin: 12px 0; font-size: 16px; }
-      .nav-links.active { display: flex; }
-      .nav-actions { display: none; }
-      .menu-icon { display: block; }
-    }
-
 /* -----------------services-------------------------------------- */
 
 .services-section{
@@ -184,7 +156,7 @@ body{
   justify-content:center;
   align-items:center;
   padding:20px;
-  z-index:999;
+  z-index:1001;
 }
 
 .modal.active{
@@ -199,15 +171,16 @@ body{
   max-width:850px;
   border-radius:25px;
   padding:45px;
-  animation:popup 0.4s ease;
+  animation:modalFadeSlideUp 0.4s ease;
   max-height:90vh;
   overflow-y:auto;
 }
 
 .close-btn{
-  position:absolute;
+  position:sticky;
   top:18px;
-  right:18px;
+  float:right;
+  z-index:2;
   width:45px;
   height:45px;
   border:none;
@@ -217,11 +190,16 @@ body{
   font-size:24px;
   cursor:pointer;
   transition:0.3s;
+  flex-shrink:0;
 }
 
 .close-btn:hover{
   background:var(--secondary-color);
   transform:rotate(90deg);
+}
+
+#modalData{
+  clear:both;
 }
 
 .modal-title{
@@ -271,15 +249,15 @@ body{
   background:var(--secondary-color);
 }
 
-@keyframes popup{
+@keyframes modalFadeSlideUp{
   from{
     opacity:0;
-    transform:scale(0.8);
+    transform:translateY(30px);
   }
 
   to{
     opacity:1;
-    transform:scale(1);
+    transform:translateY(0);
   }
 }
 
@@ -289,164 +267,86 @@ body{
     font-size:34px;
   }
 
+  .modal{
+    align-items:flex-start;
+    padding:80px 16px 20px;
+  }
+
   .modal-content{
-    padding:30px 20px;
+    max-height:calc(100vh - 100px);
+    padding:40px 20px 25px;
+    border-radius:20px;
   }
 
   .modal-title{
     font-size:30px;
   }
 
-}
-
-
-
-
-/* FOOTER */
-.footer {
-  background: #1c2d4f;
-  color: #cbd5e1;
-}
-
-.footer-top {
-  max-width: 1200px;
-  margin: auto;
-  padding: 70px 20px;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1.2fr;
-  gap: 50px;
-}
-
-.footer-logo {
-  width: 120px;
-  margin-bottom: 15px;
-}
-
-.footer-col h4 {
-  color: #ffffff;
-  margin-bottom: 18px;
-}
-
-.footer-col p {
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-.footer-col ul {
-  list-style: none;
-}
-
-.footer-col ul li {
-  margin-bottom: 10px;
-  font-size: 14px;
-}
-
-.footer-col ul li a {
-  color: #cbd5e1;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.footer-col ul li a:hover {
-  color: #0ea5a3;
-}
-
-/* BADGE */
-.nbfc-badge {
-  display: inline-block;
-  background: #0ea5a3;
-  color: #ffffff;
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 12px;
-  margin: 15px 0;
-}
-
-/* SOCIAL */
-.social-icons {
-  display: flex;
-  gap: 10px;
-}
-
-.social-icons a {
-  width: 34px;
-  height: 34px;
-  border: 1px solid #334155;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #cbd5e1;
-  text-decoration: none;
-  transition: all 0.3s;
-}
-
-.social-icons a:hover {
-  background: #0ea5a3;
-  border-color: #0ea5a3;
-  color: #ffffff;
-}
-
-/* CONTACT */
-.contact li {
-  margin-bottom: 10px;
-}
-
-.hours {
-  font-size: 13px;
-  margin-top: 15px;
-  opacity: 0.8;
-}
-
-/* FOOTER BOTTOM */
-.footer-bottom {
-  border-top: 1px solid #334155;
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 13px;
-}
-
-.footer-links {
-  display: flex;
-  gap: 15px;
-}
-
-.footer-links a {
-  color: #cbd5e1;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.footer-links a:hover {
-  color: #0ea5a3;
-}
-
-/* DISCLAIMER */
-.disclaimer {
-  background: #e5e7eb;
-  color: #334155;
-  font-size: 12px;
-  padding: 12px;
-  text-align: center;
-}
-
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .cta-section {
-    flex-direction: column;
-    text-align: center;
-    gap: 20px;
+  .services-section {
+    padding: 50px 20px;
   }
 
-  .footer-top {
-    grid-template-columns: 1fr;
-  }
+}
 
-  .footer-bottom {
-    flex-direction: column;
-    gap: 10px;
-    text-align: center;
+@media(max-width:600px){
+  .services-section {
+    padding: 40px 16px;
+  }
+  .section-header h1 {
+    font-size: 26px;
+  }
+  .section-header p {
+    font-size: 15px;
+  }
+  .service-card {
+    padding: 24px 20px;
+  }
+  .service-card h3 {
+    font-size: 22px;
+  }
+  .service-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 28px;
+  }
+  .modal{
+    padding:70px 8px 12px;
+  }
+  .modal-content {
+    max-height:calc(100vh - 82px);
+    padding:32px 14px 20px;
+    border-radius:16px;
+  }
+  .modal-title {
+    font-size: 24px;
+  }
+  .close-btn{
+    width:38px;
+    height:38px;
+    font-size:20px;
   }
 }
+
+@media(max-width:400px){
+  .modal{
+    padding:64px 6px 10px;
+  }
+  .modal-content{
+    max-height:calc(100vh - 74px);
+    padding:28px 12px 16px;
+    border-radius:14px;
+  }
+  .modal-title{
+    font-size:20px;
+  }
+  .close-btn{
+    width:34px;
+    height:34px;
+    font-size:18px;
+    top:14px;
+  }
+}
+
+
+
+

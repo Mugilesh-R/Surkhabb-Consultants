@@ -29,6 +29,7 @@
   <link rel="icon" type="image/png" href="img_res/icons/Trust.png" />
   <link rel="apple-touch-icon" href="img_res/icons/Trust.png" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="shared.css" />
 </head>
 <body>
 
@@ -40,11 +41,12 @@
       <span>PRIVATE LIMITED</span></pre>
   </div>
   <nav class="nav-links" id="navLinks">
-    <a href="index.html">Home</a>
+    <a href="index.html" class="active">Home</a>
     <a href="services.html">Services</a>
     <a href="index.html#emi-calculator">Calculator</a>
     <a href="about.html" >About Us</a>
     <a href="index.html#faq">FAQ</a>
+    <a href="contact.html">Contact</a>
   </nav>
   <div class="nav-actions"></div>
   <div class="menu-icon" onclick="toggleMenu()">☰</div>
@@ -71,7 +73,7 @@
     <br>
 
     <div class="hero-buttons">
-      <button class="btn-primary">Get Started</button>
+      <a href="contact.html" class="btn-primary">Get Started</a>
       <a href="#emi-calculator">
         <button  class="btn-outline">Calculate EMI</button>
       </a>
@@ -248,7 +250,7 @@
   </div>
 
   <p class="help-text">Not sure which loan suits you best?</p>
-  <a href="mailto:info@surkhaabconsultants.com" class="expert-btn">Talk to Our Expert</a>
+  <a href="contact.html" class="expert-btn">Talk to Our Expert</a>
 
 </section>
 
@@ -295,7 +297,7 @@
 
       <div class="slider-group">
         <label>Loan Amount <span id="loanAmountValue">₹10,00,000</span></label>
-        <input type="range" min="" max="5000000" step="100" value="1000000" id="loanAmount">
+        <input type="range" min="100000" max="5000000" step="100" value="1000000" id="loanAmount">
       </div>
 
       <div class="slider-group">
@@ -664,8 +666,6 @@
 
   </div>
 
-  <p class="help-text">Still have questions?</p>
-  <a href="mailto:info@surkhaabconsultants.com" class="cta-btn">Talk to Expert →</a>
 </section>
 
 <!-- CTA -->
@@ -685,7 +685,7 @@
 
     <!-- ABOUT -->
     <div class="footer-col">
-      <img src="img_res/Life_Insurance_1.png" class="footer-logo" alt="Logo">
+      <img src="img_res/Life_Insurance_1.png" class="footer-logo" alt="Surkhaab Consultants footer logo">
       <h4>SURKHAAB CONSULTANTS PRIVATE LIMITED</h4>
       <p>
         Helping businesses grow with reliable consulting solutions, transparent processes, and professional 
@@ -706,13 +706,13 @@
     <div class="footer-col">
       <h4>Products</h4>
       <ul>
-        <li><a href="services.html">Business Loan</a></li>
-        <li><a href="services.html">Car Loan</a></li>
-        <li><a href="services.html">Personal Loan</a></li>
-        <li><a href="services.html">Life Insurance</a></li>
-        <li><a href="services.html">Health Insurance</a></li>
-        <li><a href="services.html">General Insurance</a></li>
-        <li><a href="services.html">Financial Advisory</a></li>
+        <li><a href="services.html#business">Business Loan</a></li>
+        <li><a href="services.html#car">Car Loan</a></li>
+        <li><a href="services.html#personal">Personal Loan</a></li>
+        <li><a href="services.html#life-insurance">Life Insurance</a></li>
+        <li><a href="services.html#health-insurance">Health Insurance</a></li>
+        <li><a href="services.html#general-insurance">General Insurance</a></li>
+        <li><a href="services.html#advisory">Financial Advisory</a></li>
       </ul>
     </div>
 
@@ -725,6 +725,7 @@
         <li><a href="index.html#faq">FAQs</a></li>
         <li><a href="#">Customer Stories</a></li>
         <li><a href="#">Download Brochure</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
       </ul>
     </div>
 
@@ -732,7 +733,7 @@
     <div class="footer-col">
       <h4>Get in Touch</h4>
       <ul class="contact">
-        <li><a href="mailto:info@surkhaabconsultants.com">✉ info@surkhaabconsultants.com</a></li>
+        <li><a href="mailto:chawla171@gmail.com">✉ chawla171@gmail.com</a></li>
         <li>📍 B-38, UGF, Vishal Enclave,
 Delhi – 110027, India</li>
       </ul>
